@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src= "https://cryptopro.ru/sites/default/files/products/cades/demopage/lights.js?v=271850"></script>
+    <script language="javascript" src="https://cryptopro.ru/sites/default/files/products/cades/cadesplugin_api.js?v=271850"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: "Inter", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            padding: 0;
+        }
+
+        .header {
+            border-bottom: 1px solid grey;
+            padding: 20px 30px;
+        }
+
+
+        ul {
+            list-style-type: square;
+        }
+
+        select, input, button {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        #infoPlugin,
+        #certInfo,
+        #blockStrForSign,
+        #signedRezBlock {
+            display: none;
+            border-bottom:  1px solid grey;
+            padding: 20px 30px;
+        }
+
+        #signedRez {
+            font-size: 12px;
+        }
+
+        #infoPlugin ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #5b5b5bba;
+
+        }
+
+
+        #loader {
+                animation: animate 1.5s linear infinite;
+                clip: rect(0, 80px, 80px, 40px); 
+                height: 80px;
+                width: 80px;
+                position: absolute;
+                left: calc(50% - 40px);
+                top: calc(50% - 40px);
+                }
+                @keyframes animate {
+                0% { 
+                    transform: rotate(0deg)
+                }
+                100% { 
+                    transform: rotate(220deg)
+                }
+                }
+
+
+                #loader:after {
+                animation: animate2 1.5s ease-in-out infinite;
+                clip: rect(0, 80px, 80px, 40px);
+                content:'';
+                border-radius: 50%; 
+                height: 80px;
+                width: 80px;
+                position: absolute; 
+                } 
+                @keyframes animate2 {
+                0% {
+                    box-shadow: inset #fff 0 0 0 17px;
+                    transform: rotate(-140deg);
+                }
+            50% {
+                box-shadow: inset #fff 0 0 0 2px;
+            }
+            100% {
+                box-shadow: inset #fff 0 0 0 17px;
+                transform: rotate(140deg);
+            }
+            }
+
+    </style>
+</head> 
+<body>
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    
+    <div class="header">
+        <h2>Тест для работы эл подписью</h2>
+    </div>
+    <div class="dody">
+    
+        <div  id="infoPlugin">
+            <h3> Информация о плагине </h3>
+            <br>
+            <ul class="descr"> 
+                <li class="descr" id="PlugInVersionTxt" lang="ru"></li>
+                <li class="descr" id="CSPVersionTxt" lang="ru"></li>
+                <li class="descr" id="CSPNameTxt" lang="ru"></li>
+                <li class="descr" id="Platform"></li>
+                <li class="descr" id="UserAgent"></li>
+                <li class="descr" id="CspLicense"></li>
+            </ul>
+        </div>
+        <div id="certInfo">
+             <h3> Сертификаты </h3>
+            <br>
+        <select name="" id="listCert"></select>
+        <br>
+        <br>
+        <button id="getInfoCert"> Информация о сертификате</button>
+        </div>  
+        <div id="blockStrForSign">
+            <h3> Строка для подписания</h3>
+            <br>
+            <input id="strForSign" type="text" value="Str for example" />
+            <button id="signStr">Подписать</button>
+        </div>
+       <div id="signedRezBlock">
+        <h3>Подпись</h3>
+        <br>
+        <div id="signedRez"></div>
+       </div>
+       
+
+    </div>
+    <script type="text/javascript" src="script/main.js"></script>
+</body>
