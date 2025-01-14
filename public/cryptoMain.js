@@ -1,9 +1,3 @@
-console.log("Hello", cadesplugin.CAPICOM_CURRENT_USER_STORE)
-
-// cadesplugin.async_spawn(function* (args) {
-//     var oAbout = yield cadesplugin.CreateObjectAsync("CAdESCOM.About");
-// })
-
 var global_selectbox_counter = 0;
 
 var global_selectbox_container = new Array();
